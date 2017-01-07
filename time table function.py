@@ -1,5 +1,8 @@
 import time
 import random
+import os
+import csv
+
 
 list1 = [0, 1]
 list2 = [0, 1]
@@ -11,8 +14,6 @@ num2 = 0
 product = 0
 level = 1
 
-def bler():
-    print ('Bler')
 
 def times():
     num1 = (random.choice(list1))
@@ -48,6 +49,15 @@ year = input("What year are you in?\n(please type a number)\n")
 # Create file csv? at this point (Date reference)
 # Add the name, year etc at this point to file
 
+if not os.path.isfile('C:\\Users\\scorefile.csv'):
+    print ("New score file being created...\n\n")
+    f = open('file.csv','w')
+    a = (str(name) + "," + str(surname) + "," + str(year))
+    f.write(str(a))
+    f.close()
+    
+    
+
 if level == 1:
     print ("Level - " + str(level) + "\n")
     score = 0
@@ -72,7 +82,18 @@ if level == 3:
         divide()
         times()
 
+if level == 4:
+    print ("Level - " + str(level) + "\n")
+    score = 0
+    list1 = [6]
+    list2 = [6]
+    for i in range(2):
+        times()
+        divide()
+        times()
+        divide()
 
+        
 print ("Congratulations on completing the times table challenge\n")
 print ("You reached level...\n\n")
 print (str(level))
